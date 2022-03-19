@@ -16,6 +16,11 @@
     		</a>
     	</p>
     	<p class="site-description"><?php bloginfo( 'description' ); ?></p>
+      <?php
+        wp_nav_menu( array(
+          'theme_location' => 'menu-1',
+        ) );
+      ?>
     </header><! – .site-header – >
 
     <div class="site-content">
@@ -64,7 +69,7 @@
     	endif;
     	?>
     </div><! – .site-content – >
-
+    <?php get_sidebar(); ?>
     <?php wp_footer(); ?>
 	</body>
 </html>
