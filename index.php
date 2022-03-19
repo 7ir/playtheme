@@ -40,6 +40,7 @@
 
     				<div class="entry-content">
     					<?php the_content( esc_html__( 'Continue reading &rarr;', 'my-custom-theme' ) ); ?>
+              <?php the_post_thumbnail( 'my-custom-image-size' ); ?>
     				</div><! – .entry-content – >
 
     			</article><! – #post-## – >
