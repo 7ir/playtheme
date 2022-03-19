@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-  <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="profile" href="https://gmpg.org/xfn/11">
-    <?php wp_head(); ?>
-  </head>
-
-  <body <?php body_class( 'custom-body-class'); ?>>
-
-    <header class="site-header">
-    	<p class="site-title">
-    		<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-    			<?php bloginfo( 'name' ); ?>
-    		</a>
-    	</p>
-    	<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-      <?php
-        wp_nav_menu( array(
-          'theme_location' => 'menu-1',
-        ) );
-      ?>
-    </header><! – .site-header – >
+<?php get_header(); ?>
 
     <div class="site-content">
     	<?php
@@ -54,23 +31,10 @@
     		endwhile;
 
     	else :
-    		?>
-    		<article class="no-results">
-
-    			<header class="entry-header">
-    				<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'my-custom-theme' ); ?></h1>
-    			</header><! – .entry-header – >
-
-    			<div class="entry-content">
-    				<p><?php esc_html_e( 'It looks like nothing was found at this location.', 'my-custom-theme' ); ?></p>
-    			</div><! – .entry-content – >
-
-    		</article><! – .no-results – >
-    	<?php
+        get_template_part( '404' );
     	endif;
     	?>
     </div><! – .site-content – >
-    <?php get_sidebar(); ?>
-    <?php wp_footer(); ?>
-	</body>
-</html>
+<?php
+get_sidebar();
+get_footer();
