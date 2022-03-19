@@ -30,6 +30,16 @@ add_theme_support( 'title-tag' );
  */
 
 /**
+ * Add Bootstrap CSS
+ * As of now, it is hardcoded.
+ */
+function wpbootstrap_enqueue_styles() {
+wp_enqueue_style( 'bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' );
+wp_enqueue_style( 'my-style', get_template_directory_uri() . '/slider/slider-style.css');
+}
+add_action('wp_enqueue_scripts', 'wpbootstrap_enqueue_styles');
+
+/**
  * Create Custom Post Type for Slideres
  */
 function create_slider_post_type() {

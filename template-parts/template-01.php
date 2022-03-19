@@ -1,16 +1,8 @@
+<?php
 /*
 Template Name: Template 01
 Template Post Type: post, page
 */
-
-
-<?php
-/**
- * The template for displaying single posts and pages.
- *
- * @copyright  Copyright (c) 2020, Danny Cooper
- * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
- */
 
 get_header(); ?>
   <div class="site-content">
@@ -29,7 +21,7 @@ get_header(); ?>
       </header><!-- .entry-header -->
 
       <div class="entry-content">
-        <?php the_content(); ?>
+        <!--<?php the_content(); ?>-->
 
         <!-- Slider start -->
         <div class="container">
@@ -67,7 +59,7 @@ get_header(); ?>
                              </h2>
                              <br>
                              <h3>
-                                        <a href="<?php echo get_post_meta(get_the_ID(),'_slider_link_value_key', true); ?>"><span><?php the_excerpt(); ?></span></a>
+                                <a href="<?php echo get_post_meta(get_the_ID(),'_slider_link_value_key', true); ?>"><span><?php the_excerpt(); ?></span></a>
                              </h3>
                           </div>
                        </div><!-- /header-text -->
