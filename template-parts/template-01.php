@@ -4,7 +4,7 @@ Template Name: Template 01
 Template Post Type: post, page
 */
 
-get_header(); ?>
+get_header(); /*?>
   <div class="site-content">
     <?php
     while ( have_posts() ) :
@@ -21,7 +21,7 @@ get_header(); ?>
       </header><!-- .entry-header -->
 
       <div class="entry-content">
-        <!--<?php the_content(); ?>-->
+*/?>
 
         <!-- Slider start -->
         <div class="container">
@@ -78,6 +78,7 @@ get_header(); ?>
         </div>
         <!-- Slider end -->
 
+<?php /*
       </div><!-- .entry-content -->
 
     </article><!-- #post-## -->
@@ -93,4 +94,4 @@ get_header(); ?>
 	</div><!-- .site-content -->
 <?php
 get_sidebar();
-get_footer();
+get_footer();*/
