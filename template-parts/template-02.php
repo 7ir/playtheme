@@ -36,19 +36,13 @@ get_header(); ?>
             'post_type' => 'slider',
             'posts_per_page' => -1,
           );
-
           $my_posts = get_posts($args);*/
 
-          // trying something diffrent
+
           $query = new WP_Query( array( 'post_type' => 'slider' ) );
           $posts = $query->posts;
           do_action('qm/info', $query);
           do_action('qm/info', $posts);
-
-          /*foreach($posts as $post) {
-              // Do your stuff, e.g.
-              // echo $post->post_name;
-          }*/
 
 
 
@@ -79,7 +73,6 @@ get_header(); ?>
 
 
 
-          /* Test 02 */
           global $post;
           //$posts = array( /* WP_Post, WP_Post, ... */); this is now splittedArray0
           ?>
