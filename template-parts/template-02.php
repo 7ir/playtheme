@@ -32,25 +32,9 @@ get_header(); ?>
         <section id="slider">
           <?php
 
-          /*$args = array(
-            'post_type' => 'slider',
-            'posts_per_page' => -1,
-          );
-          $my_posts = get_posts($args);*/
-
-
-          $query = new WP_Query( array( 'post_type' => 'slider' ) );
-          $posts = $query->posts;
-          do_action('qm/info', $query);
-          do_action('qm/info', $posts);
-
-
-
-
-
-
-
-
+          /* Get cpt posts */
+          $qoutesQuery = new WP_Query( array( 'post_type' => 'slider' ) );
+          $qoutesPosts = $qoutesQuery->posts;
 
           /**
           * Custom function to split arrays into equal parts, by Andrei from https://zerowp.com/
@@ -64,80 +48,61 @@ get_header(); ?>
               return $input_array;
           }
 
-
-          $splittedArray = splitMyArray($posts, 2);
-          do_action('qm/info', $splittedArray );
+          /* hub for splitting arrays */
+          $splittedArray = splitMyArray($qoutesPosts, 2);
           $splittedArray0 = $splittedArray[0];
-          do_action('qm/info', $splittedArray0 );
-
-
+          $splittedArray1 = $splittedArray[1];
+          do_action('qm/info', array(
+            '$splittedArray0'=>$splittedArray0,
+            '$splittedArray1'=>$splittedArray1,
+          ));
 
 
           global $post;
-          //$posts = array( /* WP_Post, WP_Post, ... */); this is now splittedArray0
           ?>
-          <div class="owl-carousel owl-theme"><?php
-
-            foreach($splittedArray0 as $i => $post) {
-
-
-
-            //while (list($i, $post) = each($splittedArray0)) :
-                setup_postdata($post);
-                ?>
-                <div class="item"><?php
-                  // use the template tags below here
-                  if(has_post_thumbnail()):
-                      ?><div class="featured_image_wrap"><?php
-                          the_post_thumbnail();
-                      ?></div><?php
-                  endif;
-                  the_title();
-                ?>
-                </div>
-                <?php
-            };
-            //endwhile;
-            // don't forget to restore the main queried object after the loop!
-            wp_reset_postdata();
-          ?>
+          <div id="owl-carousel-01" class="owl-carousel owl-theme"><?php
+              foreach($splittedArray0 as $i => $post) {
+                  setup_postdata($post);
+                  ?>
+                  <div class="item"><?php
+                    // use the template tags below here
+                    if(has_post_thumbnail()):
+                        ?><div class="featured_image_wrap"><?php
+                            the_post_thumbnail();
+                        ?></div><?php
+                    endif;
+                    ?>
+                    <h4 class=”post_title <?php the_title(); ?>”>
+                      <?php the_title(); ?>
+                    </h4>
+                  </div>
+                  <?php
+              };
+              // don't forget to restore the main queried object after the loop!
+              wp_reset_postdata(); ?>
           </div>
-          <?php
 
-          ?>
-
-          <!-- Owl Carousel 01-->
-          <!--div class="owl-carousel owl-theme">
-              <div class="item"><h4>1</h4></div>
-              <div class="item"><h4>2</h4></div>
-              <div class="item"><h4>3</h4></div>
-              <div class="item"><h4>4</h4></div>
-              <div class="item"><h4>5</h4></div>
-              <div class="item"><h4>6</h4></div>
-              <div class="item"><h4>7</h4></div>
-              <div class="item"><h4>8</h4></div>
-              <div class="item"><h4>9</h4></div>
-              <div class="item"><h4>10</h4></div>
-              <div class="item"><h4>11</h4></div>
-              <div class="item"><h4>12</h4></div>
-          </div-->
-
-
-          <!--div>
-            <div class="item">
-              <h4 class=”post_title <?php the_title(); ?>”>
-              <?php the_title(); ?>
-              </h4>
-            </div>
-          </div-->
-
-
-
-
-
-
-
-
+          <div id="owl-carousel-02" class="owl-carousel owl-theme"><?php
+              foreach($splittedArray1 as $i => $post) {
+                  setup_postdata($post);
+                  ?>
+                  <div class="item"><?php
+                    // use the template tags below here
+                    if(has_post_thumbnail()):
+                        ?><div class="featured_image_wrap"><?php
+                            the_post_thumbnail();
+                        ?></div><?php
+                    endif;
+                    ?>
+                    <h4 class=”post_title <?php the_title(); ?>”>
+                      <?php the_title(); ?>
+                    </h4>
+                  </div>
+                  <?php
+              };
+              // don't forget to restore the main queried object after the loop!
+              wp_reset_postdata(); ?>
+          </div>
 
 
         </section>
