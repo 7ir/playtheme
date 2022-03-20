@@ -82,21 +82,28 @@ get_header(); ?>
           /* Test 02 */
           global $post;
           //$posts = array( /* WP_Post, WP_Post, ... */); this is now splittedArray0
-
-          while (list($i, $post) = each($splittedArray0)) :
-              setup_postdata($post);
-              // use the template tags below here
-              if(has_post_thumbnail()):
-                  ?><div class="featured_image_wrap"><?php
-                      the_post_thumbnail();
-                  ?></div><?php
-              endif;
-              the_title();
-          endwhile;
-          // don't forget to restore the main queried object after the loop!
-          wp_reset_postdata();
-
-
+          ?>
+          <div class="owl-carousel owl-theme"><?php
+            while (list($i, $post) = each($splittedArray0)) :
+                setup_postdata($post);
+                ?>
+                <div class="item"><?php
+                  // use the template tags below here
+                  if(has_post_thumbnail()):
+                      ?><div class="featured_image_wrap"><?php
+                          the_post_thumbnail();
+                      ?></div><?php
+                  endif;
+                  the_title();
+                ?>
+                </div>
+                <?php
+            endwhile;
+            // don't forget to restore the main queried object after the loop!
+            wp_reset_postdata();
+          ?>
+          </div>
+          <?php
 
           ?>
 

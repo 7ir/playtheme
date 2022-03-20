@@ -41,7 +41,7 @@ get_header(); /*?>
               /* Test 02 */
               global $post;
               $posts = array( /* WP_Post, WP_Post, ... */);
-              
+
               while (list($i, $post) = each($posts)) :
                   setup_postdata($post);
                   // use the template tags below here
