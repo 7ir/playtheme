@@ -27,7 +27,8 @@ get_header(); /*?>
         <div class="container">
            <div class="row">
               <?php
-              $arg = array(
+              /* Test 01 */
+              /*$arg = array(
                  'post_type'         => 'slider',
                  'posts_per_page'    => 5,
                  'order'             => 'ASC'
@@ -35,45 +36,50 @@ get_header(); /*?>
               $slider = new WP_Query($arg);
               $j = 0;
               $post_count = wp_count_posts('slider')->publish;
-              ?>
-              <!-- Carousel -->
-              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                 <!-- Indicators -->
+              */
+
+              /* Test 02 */
+              global $post;
+              $posts = array( /* WP_Post, WP_Post, ... */);
+              
+              while (list($i, $post) = each($posts)) :
+                  setup_postdata($post);
+                  // use the template tags below here
+                  if(has_post_thumbnail()):
+                      ?><div class="featured_image_wrap"><?php
+                          the_post_thumbnail();
+                      ?></div><?php
+                  endif;
+                  the_title();
+              endwhile;
+              // don't forget to restore the main queried object after the loop!
+              wp_reset_postdata();
+
+?>
 
 
-                 <ol class="carousel-indicators">
-                        <?php for($i=0;$i<$post_count; $i++): ?>
-                    <li data-target="#carousel-example-generic" data-slide-to="<?php echo $i; ?>" class="active"></li>
-                        <?php endfor; ?>
-                 </ol>
-                 <!-- Wrapper for slides -->
+
+              <!-- Carousel, Test 01 -->
+              <!--div class="owl-carousel">
                  <div class="carousel-inner">
                         <?php while($slider->have_posts()) : $slider->the_post(); ?>
-                    <div class="item<?php echo $j==0 ? ' active': '';?>">
+                    <div class="item">
                        <?php if(has_post_thumbnail()): the_post_thumbnail('slider'); endif; ?>
-                       <!-- Static Header -->
-                       <div class="header-text hidden-xs">
-                          <div class="col-md-12 text-center">
-                             <h2>
-                                <span>Welcome to <strong><?php the_title() ?></strong></span>
-                             </h2>
-                             <br>
-                             <h3>
-                                <a href="<?php echo get_post_meta(get_the_ID(),'_slider_link_value_key', true); ?>"><span><?php the_excerpt(); ?></span></a>
-                             </h3>
-                          </div>
-                       </div><!-- /header-text -->
+                         <h2>
+                            <?php the_title() ?>
+                         </h2>
+                         <br>
+                         <h3>
+                            <a href="<?php echo get_post_meta(get_the_ID(),'_slider_link_value_key', true); ?>"><span><?php the_excerpt(); ?></span></a>
+                         </h3>
                     </div>
                         <?php $j++; endWhile; wp_reset_query(); ?>
                  </div>
-                 <!-- Controls -->
-                 <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                 </a>
-                 <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                 </a>
-              </div><!-- /carousel -->
+              </div--><!-- /carousel -->
+
+
+
+
            </div>
         </div>
         <!-- Slider end -->

@@ -45,10 +45,15 @@ get_header(); ?>
           do_action('qm/info', $query);
           do_action('qm/info', $posts);
 
-          foreach($posts as $post) {
+          /*foreach($posts as $post) {
               // Do your stuff, e.g.
               // echo $post->post_name;
-          }
+          }*/
+
+
+
+
+
 
 
 
@@ -66,8 +71,30 @@ get_header(); ?>
           }
 
 
-          //$splittedArray = splitMyArray($my_posts, 3);
-          //do_action('qm/info', $splittedArray );
+          $splittedArray = splitMyArray($posts, 2);
+          do_action('qm/info', $splittedArray );
+          $splittedArray0 = $splittedArray[0];
+          do_action('qm/info', $splittedArray0 );
+
+
+
+
+          /* Test 02 */
+          global $post;
+          //$posts = array( /* WP_Post, WP_Post, ... */); this is now splittedArray0
+
+          while (list($i, $post) = each($splittedArray0)) :
+              setup_postdata($post);
+              // use the template tags below here
+              if(has_post_thumbnail()):
+                  ?><div class="featured_image_wrap"><?php
+                      the_post_thumbnail();
+                  ?></div><?php
+              endif;
+              the_title();
+          endwhile;
+          // don't forget to restore the main queried object after the loop!
+          wp_reset_postdata();
 
 
 
