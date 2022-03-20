@@ -49,12 +49,16 @@ get_header(); ?>
           }
 
           /* hub for splitting arrays */
-          $splittedArray = splitMyArray($qoutesPosts, 2);
+          $splittedArray = splitMyArray($qoutesPosts, 4);
           $splittedArray0 = $splittedArray[0];
           $splittedArray1 = $splittedArray[1];
+          $splittedArray0 = $splittedArray[2];
+          $splittedArray1 = $splittedArray[3];
           do_action('qm/info', array(
             '$splittedArray0'=>$splittedArray0,
             '$splittedArray1'=>$splittedArray1,
+            '$splittedArray0'=>$splittedArray2,
+            '$splittedArray1'=>$splittedArray3,
           ));
 
 
@@ -78,7 +82,6 @@ get_header(); ?>
                   </div>
                   <?php
               };
-              // don't forget to restore the main queried object after the loop!
               wp_reset_postdata(); ?>
           </div>
 
@@ -100,10 +103,50 @@ get_header(); ?>
                   </div>
                   <?php
               };
-              // don't forget to restore the main queried object after the loop!
               wp_reset_postdata(); ?>
           </div>
 
+          <div id="owl-carousel-03" class="owl-carousel owl-theme"><?php
+              foreach($splittedArray2 as $i => $post) {
+                  setup_postdata($post);
+                  ?>
+                  <div class="item"><?php
+                    // use the template tags below here
+                    if(has_post_thumbnail()):
+                        ?><div class="featured_image_wrap"><?php
+                            the_post_thumbnail();
+                        ?></div><?php
+                    endif;
+                    ?>
+                    <h4 class=”post_title <?php the_title(); ?>”>
+                      <?php the_title(); ?>
+                    </h4>
+                  </div>
+                  <?php
+              };
+              wp_reset_postdata(); ?>
+          </div>
+
+          <div id="owl-carousel-03" class="owl-carousel owl-theme"><?php
+              foreach($splittedArray3 as $i => $post) {
+                  setup_postdata($post);
+                  ?>
+                  <div class="item"><?php
+                    // use the template tags below here
+                    if(has_post_thumbnail()):
+                        ?><div class="featured_image_wrap"><?php
+                            the_post_thumbnail();
+                        ?></div><?php
+                    endif;
+                    ?>
+                    <h4 class=”post_title <?php the_title(); ?>”>
+                      <?php the_title(); ?>
+                    </h4>
+                  </div>
+                  <?php
+              };
+              wp_reset_postdata(); ?>
+          </div>
 
         </section>
 

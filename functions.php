@@ -116,6 +116,9 @@ add_action('after_setup_theme','cih_theme_support');
 function sliderLink_add_meta_box() {
    add_meta_box('slider_link','Slider Link','slider_link_callback','slider');
 }
+function qouteText_add_meta_box() {
+   add_meta_box('qoute_text','Qoute text','qoute_text_callback','slider');
+}
 
 function slider_link_callback( $post ) {
 
@@ -126,6 +129,18 @@ function slider_link_callback( $post ) {
    <?php
 }
 add_action('add_meta_boxes','sliderLink_add_meta_box');
+
+
+function qoute_text_callback( $post ) {
+
+   wp_nonce_field('qoute_text_save','qoute_text_meta_box_nonce');
+   $value = get_post_meta($post->ID,'_qoute_text_value_key',true);
+   ?>
+    <input type="text" name="qoute_text_field" id="qoute_text_field" value="<?php echo esc_attr( $value ); ?>" required="required" size="100" />
+   <?php
+}
+add_action('add_meta_boxes','qouteText_add_meta_box');
+
 
 
 function slider_link_save( $post_id ) {
@@ -148,6 +163,28 @@ function slider_link_save( $post_id ) {
    update_post_meta( $post_id,'_slider_link_value_key', $slider_link );
 }
 add_action('save_post','slider_link_save');
+
+
+function qoute_text_save( $post_id ) {
+   if( ! isset($_POST['qoute_text_meta_box_nonce'])) {
+      return;
+   }
+   if( ! wp_verify_nonce( $_POST['qoute_text_meta_box_nonce'], 'qoute_text_save') ) {
+      return;
+   }
+   if( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) {
+      return;
+   }
+   if( ! current_user_can('edit_post', $post_id)) {
+      return;
+   }
+   if( ! isset($_POST['qoute_text_field'])) {
+      return;
+   }
+   $qoute_text = sanitize_text_field($_POST['qoute_text_field']);
+   update_post_meta( $post_id,'_qoute_text_value_key', $qoute_text );
+}
+add_action('save_post','qoute_text_save');
 
 
 /**
