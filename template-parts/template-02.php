@@ -32,23 +32,25 @@ get_header(); ?>
         <section id="slider">
           <?php
 
-          $args = array(
+          /*$args = array(
             'post_type' => 'slider',
             'posts_per_page' => -1,
           );
 
-          $my_posts = get_posts($args);
+          $my_posts = get_posts($args);*/
 
-          /*if( ! empty( $my_posts ) ){
-          	$output = '<ul>';
-          	foreach ( $my_posts as $p ){
-          		$output .= '<li><a href="' . get_permalink( $p->ID ) . '">'
-          		. $p->post_title . '</a></li>';
-          	}
-          	$output .= '</ul>';
-          } else {
-            echo "empty array";
-          }*/
+          // trying something diffrent
+          $query = new WP_Query( array( 'post_type' => 'slider' ) );
+          $posts = $query->posts;
+          do_action('qm/info', $query);
+          do_action('qm/info', $posts);
+
+          foreach($posts as $post) {
+              // Do your stuff, e.g.
+              // echo $post->post_name;
+          }
+
+
 
 
           /**
@@ -64,8 +66,10 @@ get_header(); ?>
           }
 
 
-          $splittedArray = splitMyArray($my_posts, 3);
-          do_action('qm/info', $splittedArray );
+          //$splittedArray = splitMyArray($my_posts, 3);
+          //do_action('qm/info', $splittedArray );
+
+
 
           ?>
 
@@ -86,68 +90,15 @@ get_header(); ?>
           </div-->
 
 
+          <!--div>
+            <div class="item">
+              <h4 class=”post_title <?php the_title(); ?>”>
+              <?php the_title(); ?>
+              </h4>
+            </div>
+          </div-->
 
 
-          <div class=”wrap_choo”>
-            <div class=”container”>
-              <div class=”chooseUs”>
-                <h3> SPECIALS / ANNOUNCEMENTS</h3>
-                <div class=”list_services”>
-                  <?php
-                  // set the “paged” parameter (use ‘page’ if the query is on a static front page)
-                  $paged = ( get_query_var( ‘paged’ ) ) ? get_query_var( ‘paged’ ) : 1;
-
-                  // the query
-                  $the_query = new WP_Query( ‘order=DSC&paged=’ . $paged );
-                  ?>
-
-                  <div id=”owl-example” class=”owl-carousel”>
-                    <?php if ( $the_query->have_posts() ) : ?>
-                    <?php
-                    // the loop
-                    while ( $the_query->have_posts() ) : $the_query->the_post();
-                    ?>
-
-                    <div class=”col-sm-12 col-xs-12 col-md-12 respBox wow bounceInUp text-center” data-wow-delay=’0.5s’>
-                      <div class=”thumbnail udarpakhi”>
-                        <?php the_post_thumbnail(); ?>
-                        <div class=”caption”>
-                          <h4 class=”post_title <?php the_title(); ?>”>
-                          <?php the_title(); ?>
-                          </h4>
-                          <p>
-                          <?php echo wp_trim_words( get_the_content(), 15, ‘…’ ); ?>
-                          <a href=”<?php the_permalink(); ?>”>Read More</a>
-                          </p>
-
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <?php endwhile; ?>
-
-                    <?php
-                    // clean up after the query and pagination
-                    wp_reset_postdata();
-                    ?>
-                    <?php else: ?>
-                    <p>
-                    <?php _e( ‘Sorry, no posts matched your criteria.’ ); ?>
-                    </p>
-                    <?php endif; ?>
-
-                  </div><!-— owl -->
-
-                  <div class=”customNavigation”>
-                    <a class=”btn prev”>prev</a>
-                    <a class=”btn next”>next</a>
-                  </div><!-— customNavigation -->
-
-                </div><!-— list_services -->
-              </div><!-— chooseUs —->
-            </div><!-— container -->
-          </div><!-— wrap_choo -->
 
 
 
