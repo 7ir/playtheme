@@ -77,7 +77,12 @@ get_header(); ?>
           //$posts = array( /* WP_Post, WP_Post, ... */); this is now splittedArray0
           ?>
           <div class="owl-carousel owl-theme"><?php
-            while (list($i, $post) = each($splittedArray0)) :
+
+            foreach($splittedArray0 as $i => $post) {
+
+
+
+            //while (list($i, $post) = each($splittedArray0)) :
                 setup_postdata($post);
                 ?>
                 <div class="item"><?php
@@ -91,7 +96,8 @@ get_header(); ?>
                 ?>
                 </div>
                 <?php
-            endwhile;
+            };
+            //endwhile;
             // don't forget to restore the main queried object after the loop!
             wp_reset_postdata();
           ?>
