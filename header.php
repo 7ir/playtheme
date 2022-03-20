@@ -10,9 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.2.0/flexslider-min.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" type="text/css">
     <!-- from slider tutorial 02 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider-min.js"></script>
-    <script type="text/javascript">(function(jQuery) {
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider-min.js"></script-->
+    <!-- owl carousel -->
+    <!--link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css"-->
+    <!--script type="text/javascript">(function(jQuery) {
       jQuery(window).load(function() {
           $('#slider .flexslider').flexslider({
                  animation: 'slide',
@@ -26,7 +29,8 @@
                   controlsContainer: ".flexslider",
           });
       });
-    })(jQuery)</script>
+    })(jQuery)</script-->
+
 
 
     <?php wp_head(); ?>

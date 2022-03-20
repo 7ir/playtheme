@@ -22,5 +22,23 @@
     });
   })(jQuery)</script-->
 
+    <!-- from slider tutorial 02 -->
+    <!--script src="jquery.min.js"></script-->
+    <!--script src="owlcarousel/owl.carousel.min.js"></script-->
+    <script>
+    jQuery('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        animateIn: 'fadeIn',
+        animateOut: 'fadeOut',
+        nav:true,
+        responsive:{
+          0:{
+              items:1
+          },
+        },
+    })
+    </script>
+
   </body>
 </html>
