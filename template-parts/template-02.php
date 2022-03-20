@@ -52,13 +52,13 @@ get_header(); ?>
           $splittedArray = splitMyArray($qoutesPosts, 4);
           $splittedArray0 = $splittedArray[0];
           $splittedArray1 = $splittedArray[1];
-          $splittedArray0 = $splittedArray[2];
-          $splittedArray1 = $splittedArray[3];
+          $splittedArray2 = $splittedArray[2];
+          $splittedArray3 = $splittedArray[3];
           do_action('qm/info', array(
             '$splittedArray0'=>$splittedArray0,
             '$splittedArray1'=>$splittedArray1,
-            '$splittedArray0'=>$splittedArray2,
-            '$splittedArray1'=>$splittedArray3,
+            '$splittedArray2'=>$splittedArray2,
+            '$splittedArray3'=>$splittedArray3,
           ));
 
 
@@ -127,7 +127,7 @@ get_header(); ?>
               wp_reset_postdata(); ?>
           </div>
 
-          <div id="owl-carousel-03" class="owl-carousel owl-theme"><?php
+          <div id="owl-carousel-04" class="owl-carousel owl-theme"><?php
               foreach($splittedArray3 as $i => $post) {
                   setup_postdata($post);
                   ?>
