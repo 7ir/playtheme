@@ -27,18 +27,18 @@ get_header(); ?>
 
       <div class="entry-content">
 
+        <!-- WPForms embed -->
+        <?php echo do_shortcode('[wpforms id="35"]');?>
 
         <!-- Slider start -->
-        <section id="slider">
-          <?php
+        <section id="zlider" class="grid">
 
+          <?php
           /* Get cpt posts */
           $qoutesQuery = new WP_Query( array( 'post_type' => 'slider' ) );
           $qoutesPosts = $qoutesQuery->posts;
 
-          /**
-          * Custom function to split arrays into equal parts, by Andrei from https://zerowp.com/
-          */
+          /* Custom function to split arrays into equal parts, by Andrei from https://zerowp.com/ */
           function splitMyArray(array $input_array, int $size, $preserve_keys = null): array
           {
               $nr = (int)ceil(count($input_array) / $size);
@@ -64,6 +64,10 @@ get_header(); ?>
 
           global $post;
           ?>
+
+          <div>1</div>
+
+          <div>
           <div id="owl-carousel-01" class="owl-carousel owl-theme"><?php
               foreach($splittedArray0 as $i => $post) {
                   setup_postdata($post);
@@ -84,7 +88,11 @@ get_header(); ?>
               };
               wp_reset_postdata(); ?>
           </div>
+          </div>
 
+          <div>3</div>
+
+          <div>
           <div id="owl-carousel-02" class="owl-carousel owl-theme"><?php
               foreach($splittedArray1 as $i => $post) {
                   setup_postdata($post);
@@ -105,7 +113,11 @@ get_header(); ?>
               };
               wp_reset_postdata(); ?>
           </div>
+          </div>
 
+          <div>5</div>
+
+          <div>
           <div id="owl-carousel-03" class="owl-carousel owl-theme"><?php
               foreach($splittedArray2 as $i => $post) {
                   setup_postdata($post);
@@ -126,7 +138,11 @@ get_header(); ?>
               };
               wp_reset_postdata(); ?>
           </div>
+          </div>
 
+          <div>7</div>
+
+          <div>
           <div id="owl-carousel-04" class="owl-carousel owl-theme"><?php
               foreach($splittedArray3 as $i => $post) {
                   setup_postdata($post);
@@ -147,6 +163,9 @@ get_header(); ?>
               };
               wp_reset_postdata(); ?>
           </div>
+          </div>
+
+          <div>9</div>
 
         </section>
 

@@ -1,7 +1,9 @@
 <?php wp_footer(); ?>
-    <!-- Owl Carousel -->
+    <!-- jQuery library -->
+   <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
+   <!-- Owl Carousel -->
+   <!--script src="http://playcustomtheme.local/wp-content/themes/playtheme/owlcarousel/owl.carousel.min.js"></script-->
     <script>
-
 
     jQuery('#owl-carousel-01').owlCarousel({
         autoplay:true,
@@ -87,9 +89,6 @@
           owl04.trigger( 'next.owl.carousel');
       }
     },3000);
-
-
-
 
     </script>
 
