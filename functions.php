@@ -97,18 +97,18 @@ add_action( 'init', function() {
 /**
  * Add featured Image Support
  */
- function cih_theme_support(){
+/*function cih_theme_support(){
 
    add_theme_support( 'post-thumbnails' );
    add_image_size( 'slider_image','1024','720',true);
 
 }
-add_action('after_setup_theme','cih_theme_support');
+add_action('after_setup_theme','cih_theme_support');*/
 
 /**
  * Add Link Field Creating Custom Meta-Box Field in WordPress Admin
  */
-function sliderLink_add_meta_box() {
+/*function sliderLink_add_meta_box() {
    add_meta_box('slider_link','Slider Link','slider_link_callback','slider');
 }
 function qouteText_add_meta_box() {
@@ -135,9 +135,9 @@ function qoute_text_callback( $post ) {
    <?php
 }
 add_action('add_meta_boxes','qouteText_add_meta_box');
+*/
 
-
-
+/*
 function slider_link_save( $post_id ) {
    if( ! isset($_POST['slider_link_meta_box_nonce'])) {
       return;
@@ -180,6 +180,7 @@ function qoute_text_save( $post_id ) {
    update_post_meta( $post_id,'_qoute_text_value_key', $qoute_text );
 }
 add_action('save_post','qoute_text_save');
+*/
 
 
 
@@ -188,165 +189,181 @@ add_action('save_post','qoute_text_save');
 
 
 
-//Adding shortcode action hook
-add_shortcode( 'hakuna-matata' , 'hakuna_matata_shortcode_callback');
-//Shortcode Callback function
-if( ! function_exists('hakuna_matata_shortcode_callback') ){
-  function hakuna_matata_shortcode_callback(){
+function splitMyArray(array $input_array, int $size, $preserve_keys = null): array
+{
+    $nr = (int)ceil(count($input_array) / $size);
+    if ($nr > 0) {
+        return array_chunk($input_array, $nr, $preserve_keys);
+    }
+    return $input_array;
+}
 
 
-    /* Get cpt posts */
+
+
+
+add_shortcode( 'hakuna-matata-01' , 'hakuna_matata_shortcode_callback_01');
+if( ! function_exists('hakuna_matata_shortcode_callback_01') ){
+  function hakuna_matata_shortcode_callback_01(){
+
+    global $post;
+
     $qoutesQuery = new WP_Query( array( 'post_type' => 'slider' ) );
     $qoutesPosts = $qoutesQuery->posts;
 
-    /* Custom function to split arrays into equal parts, by Andrei from https://zerowp.com/ */
-    function splitMyArray(array $input_array, int $size, $preserve_keys = null): array
-    {
-        $nr = (int)ceil(count($input_array) / $size);
-        if ($nr > 0) {
-            return array_chunk($input_array, $nr, $preserve_keys);
-        }
-        return $input_array;
-    }
-
-    /* hub for splitting arrays */
     $splittedArray = splitMyArray($qoutesPosts, 4);
     $splittedArray0 = $splittedArray[0];
-    $splittedArray1 = $splittedArray[1];
-    $splittedArray2 = $splittedArray[2];
-    $splittedArray3 = $splittedArray[3];
-    /*do_action('qm/info', array(
-      '$splittedArray0'=>$splittedArray0,
-      '$splittedArray1'=>$splittedArray1,
-      '$splittedArray2'=>$splittedArray2,
-      '$splittedArray3'=>$splittedArray3,
-    ));*/
 
+    $s1 = '';
+    $s1 = '<div id="owl-carousel-01" class="owl-carousel owl-theme">';
+      foreach($splittedArray0 as $i => $post) {
+          setup_postdata($post);
+          $thePostThumbnail = get_the_post_thumbnail_url( $post ,'thumbnail');
+          $thePostQoute = get_field('qoute');
+          $thePostTitle = get_the_title();
+          $s1 .= '<div class="item">';
+            if(has_post_thumbnail() ):
+                $s1 .= '<div class="featured_image_wrap">';
+                  $s1 .= '<img src="'.$thePostThumbnail.'"/>';
+                $s1 .= '</div>';
+            endif;
+            $s1 .= '<p class=”post_qoute">';
+              $s1 .= $thePostQoute;
+            $s1 .= '</p>';
+            $s1 .= '<h4 class=”post_title">';
+              $s1 .= $thePostTitle;
+            $s1 .= '</h4>';
+          $s1 .= '</div>';
+      };
+      wp_reset_postdata();
+    $s1 .= '</div>';
 
-    //$post = get_option('post');
-    global $post;
-
-
-    $firstSlider = '';
-    foreach($splittedArray0 as $i => $post) {
-        setup_postdata($post);
-        $firstSlider .= '<div class="item">';
-        /*$firstSlider_02 = '<?php
-          if(has_post_thumbnail()):
-              ?><div class="featured_image_wrap"><?php
-                  the_post_thumbnail();
-              ?></div><?php
-          endif;
-          ?>
-          <h4 class=”post_title <?php the_title(); ?>”>
-            <?php the_title(); ?>
-          </h4>
-        </div>';*/
-        $firstSlider .= '</div>';
-    };
-
-
-    do_action('qm/info', $firstSlider );
-
-   return $firstSlider;
-    /*return '
-  <!-- Slider start -->
-  <section id="zlider" class="grid">
-
-
-    <div>1</div>
-
-    <div>
-    <div id="owl-carousel-01" class="owl-carousel owl-theme"><?php
-        $firstSlider
-        wp_reset_postdata(); ?>
-    </div>
-    </div>
-
-    <div>3</div>
-
-    <div>
-    <div id="owl-carousel-02" class="owl-carousel owl-theme"><?php
-        foreach($splittedArray1 as $i => $post) {
-            setup_postdata($post);
-            ?>
-            <div class="item"><?php
-              // use the template tags below here
-              if(has_post_thumbnail()):
-                  ?><div class="featured_image_wrap"><?php
-                      the_post_thumbnail();
-                  ?></div><?php
-              endif;
-              ?>
-              <h4 class=”post_title <?php the_title(); ?>”>
-                <?php the_title(); ?>
-              </h4>
-            </div>
-            <?php
-        };
-        wp_reset_postdata(); ?>
-    </div>
-    </div>
-
-    <div>5</div>
-
-    <div>
-    <div id="owl-carousel-03" class="owl-carousel owl-theme"><?php
-        foreach($splittedArray2 as $i => $post) {
-            setup_postdata($post);
-            ?>
-            <div class="item"><?php
-              // use the template tags below here
-              if(has_post_thumbnail()):
-                  ?><div class="featured_image_wrap"><?php
-                      the_post_thumbnail();
-                  ?></div><?php
-              endif;
-              ?>
-              <h4 class=”post_title <?php the_title(); ?>”>
-                <?php the_title(); ?>
-              </h4>
-            </div>
-            <?php
-        };
-        wp_reset_postdata(); ?>
-    </div>
-    </div>
-
-    <div>7</div>
-
-    <div>
-    <div id="owl-carousel-04" class="owl-carousel owl-theme"><?php
-        foreach($splittedArray3 as $i => $post) {
-            setup_postdata($post);
-            ?>
-            <div class="item"><?php
-              // use the template tags below here
-              if(has_post_thumbnail()):
-                  ?><div class="featured_image_wrap"><?php
-                      the_post_thumbnail();
-                  ?></div><?php
-              endif;
-              ?>
-              <h4 class=”post_title <?php the_title(); ?>”>
-                <?php the_title(); ?>
-              </h4>
-            </div>
-            <?php
-        };
-        wp_reset_postdata(); ?>
-    </div>
-    </div>
-
-    <div>9</div>
-
-  </section> <!-- Slider end -->
-
-  ';*/
+    return $s1;
   }
 }
 
 
+
+add_shortcode( 'hakuna-matata-02' , 'hakuna_matata_shortcode_callback_02');
+if( ! function_exists('hakuna_matata_shortcode_callback_02') ){
+  function hakuna_matata_shortcode_callback_02(){
+
+    global $post;
+
+    $qoutesQuery = new WP_Query( array( 'post_type' => 'slider' ) );
+    $qoutesPosts = $qoutesQuery->posts;
+
+    $splittedArray = splitMyArray($qoutesPosts, 4);
+    $splittedArray1 = $splittedArray[1];
+
+    $s2 = '';
+    $s2 = '<div id="owl-carousel-02" class="owl-carousel owl-theme">';
+      foreach($splittedArray1 as $i => $post) {
+          setup_postdata($post);
+          $thePostThumbnail = get_the_post_thumbnail_url( $post ,'thumbnail');
+          $thePostQoute = get_field('qoute');
+          $thePostTitle = get_the_title();
+          $s2 .= '<div class="item">';
+            if(has_post_thumbnail() ):
+                $s2 .= '<div class="featured_image_wrap">';
+                  $s2 .= '<img src="'.$thePostThumbnail.'"/>';
+                $s2 .= '</div>';
+            endif;
+            $s2 .= '<p class=”post_qoute">';
+              $s2 .= $thePostQoute;
+            $s2 .= '</p>';
+            $s2 .= '<h4 class=”post_title">';
+              $s2 .= $thePostTitle;
+            $s2 .= '</h4>';
+          $s2 .= '</div>';
+      };
+      wp_reset_postdata();
+    $s2 .= '</div>';
+
+    return $s2;
+  }
+}
+
+
+add_shortcode( 'hakuna-matata-03' , 'hakuna_matata_shortcode_callback_03');
+if( ! function_exists('hakuna_matata_shortcode_callback_03') ){
+  function hakuna_matata_shortcode_callback_03(){
+
+    global $post;
+
+    $qoutesQuery = new WP_Query( array( 'post_type' => 'slider' ) );
+    $qoutesPosts = $qoutesQuery->posts;
+
+    $splittedArray = splitMyArray($qoutesPosts, 4);
+    $splittedArray2 = $splittedArray[2];
+
+    $s3 = '';
+    $s3 = '<div id="owl-carousel-03" class="owl-carousel owl-theme">';
+      foreach($splittedArray2 as $i => $post) {
+          setup_postdata($post);
+          $thePostThumbnail = get_the_post_thumbnail_url( $post ,'thumbnail');
+          $thePostQoute = get_field('qoute');
+          $thePostTitle = get_the_title();
+          $s3 .= '<div class="item">';
+            if(has_post_thumbnail() ):
+                $s3 .= '<div class="featured_image_wrap">';
+                  $s3 .= '<img src="'.$thePostThumbnail.'"/>';
+                $s3 .= '</div>';
+            endif;
+            $s3 .= '<p class=”post_qoute">';
+              $s3 .= $thePostQoute;
+            $s3 .= '</p>';
+            $s3 .= '<h4 class=”post_title">';
+              $s3 .= $thePostTitle;
+            $s3 .= '</h4>';
+          $s3 .= '</div>';
+      };
+      wp_reset_postdata();
+    $s3 .= '</div>';
+
+    return $s3;
+  }
+}
+
+add_shortcode( 'hakuna-matata-04' , 'hakuna_matata_shortcode_callback_04');
+if( ! function_exists('hakuna_matata_shortcode_callback_04') ){
+  function hakuna_matata_shortcode_callback_04(){
+
+    global $post;
+
+    $qoutesQuery = new WP_Query( array( 'post_type' => 'slider' ) );
+    $qoutesPosts = $qoutesQuery->posts;
+
+    $splittedArray = splitMyArray($qoutesPosts, 4);
+    $splittedArray3 = $splittedArray[3];
+
+    $s4 = '';
+    $s4 = '<div id="owl-carousel-04" class="owl-carousel owl-theme">';
+      foreach($splittedArray3 as $i => $post) {
+          setup_postdata($post);
+          $thePostThumbnail = get_the_post_thumbnail_url( $post ,'thumbnail');
+          $thePostQoute = get_field('qoute');
+          $thePostTitle = get_the_title();
+          $s4 .= '<div class="item">';
+            if(has_post_thumbnail() ):
+                $s4 .= '<div class="featured_image_wrap">';
+                  $s4 .= '<img src="'.$thePostThumbnail.'"/>';
+                $s4 .= '</div>';
+            endif;
+            $s4 .= '<p class=”post_qoute">';
+              $s4 .= $thePostQoute;
+            $s4 .= '</p>';
+            $s4 .= '<h4 class=”post_title">';
+              $s4 .= $thePostTitle;
+            $s4 .= '</h4>';
+          $s4 .= '</div>';
+      };
+      wp_reset_postdata();
+    $s4 .= '</div>';
+
+    return $s4;
+  }
+}
 
 
 
