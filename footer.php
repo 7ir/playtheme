@@ -5,6 +5,11 @@
    <!--script src="http://playcustomtheme.local/wp-content/themes/playtheme/owlcarousel/owl.carousel.min.js"></script-->
     <script>
 
+
+    jQuery('.wpforms-field-container').click(function(){
+      jQuery('.wpforms-field-container').addClass('init-nlform-toggle');
+    });
+
     var owl01 = jQuery('#owl-carousel-01');
     jQuery('#owl-carousel-01').owlCarousel({
         autoplay:false,
@@ -15,6 +20,10 @@
         animateIn: 'fadeIn',
         animateOut: 'fadeOut',
         nav:false,
+        dots:false,
+        mouseDrag:false,
+        touchDrag:false,
+        pullDrag:false,
         responsive:{
           0:{
               items:1
@@ -38,6 +47,10 @@
         animateIn: 'fadeIn',
         animateOut: 'fadeOut',
         nav:false,
+        dots:false,
+        mouseDrag:false,
+        touchDrag:false,
+        pullDrag:false,
         responsive:{
           0:{
               items:1
@@ -61,6 +74,10 @@
         animateIn: 'fadeIn',
         animateOut: 'fadeOut',
         nav:false,
+        dots:false,
+        mouseDrag:false,
+        touchDrag:false,
+        pullDrag:false,
         responsive:{
           0:{
               items:1
@@ -84,6 +101,10 @@
         animateIn: 'fadeIn',
         animateOut: 'fadeOut',
         nav:false,
+        dots:false,
+        mouseDrag:false,
+        touchDrag:false,
+        pullDrag:false,
         responsive:{
           0:{
               items:1

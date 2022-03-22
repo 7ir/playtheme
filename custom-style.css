@@ -1,6 +1,58 @@
+html {
+  overflow: hidden;
+}
+
+
+@font-face {
+    font-family: Switzer-Regular;
+    src: url(/wp-content/themes/playtheme/fonts/Switzer-Regular.woff2);
+    font-weight: normal;
+}
+
 
 p {
-  font-size:16px;
+  font-family: Switzer-Regular;
+  margin: 0px;
+}
+
+h4 {
+  font-family: Switzer-Regular;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.cleanpage {
+  display: grid;
+  align-items: center;
+  max-width: 1268px;
+  width: 100%;
+}
+.cleanpage > div > .gb-grid-column:first-child {
+  height: 100vh;
+}
+
+.theme-background {
+  height: 100%;
+  background:
+      linear-gradient(217deg, rgba(100,100,255,.8), rgba(0,100,255,0) 70.71%),
+      linear-gradient(127deg, rgba(100,100,155,.8), rgba(0,100,255,0) 70.71%),
+      linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,100,255,0) 70.71%);
+}
+
+@media(max-width:767px) {
+  html {
+    overflow: visible;
+  }
+  .theme-background {
+    height: 100%;
+  }
+  .cleanpage > div > .gb-grid-column:first-child {
+    height: auto !important;
+  }
+}
+
+body {
+  height: 100vh;
 }
 
 .owl-carousel {
@@ -14,6 +66,33 @@ p {
     height: 100px;
 }
 
-.owl-carouse p {
- font-family: ;
+.owl-carousel .item {
+  padding-left: 20px;
+}
+
+.owl-carousel p {
+
+}
+
+.owl-carousel p:before {
+  display: inline-block;
+  position: absolute;
+  content: url('/wp-content/uploads/2022/03/bq.svg');
+  height: 10px;
+  width: 10px;
+  left: 0px;
+}
+
+
+.wpforms-field-container {
+  position: absolute !important;
+  z-index: 10 !important;
+  opacity: 0;
+  transition:opacity 0.5s;
+}
+
+.init-nlform-toggle {
+  position: relative !important;
+  z-index: 0 !important;
+  opacity: 1
 }
