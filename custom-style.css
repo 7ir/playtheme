@@ -2,23 +2,48 @@ html {
   overflow: hidden;
 }
 
-
 @font-face {
     font-family: Switzer-Regular;
     src: url(/wp-content/themes/playtheme/fonts/Switzer-Regular.woff2);
     font-weight: normal;
 }
 
+@font-face {
+    font-family: Author-Regular;
+    src: url(/wp-content/themes/playtheme/fonts/Author-Regular.woff2);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Switzer-Semibold;
+    src: url(/wp-content/themes/playtheme/fonts/Switzer-Semibold.woff2);
+    font-weight: 600;
+}
 
 p {
   font-family: Switzer-Regular;
   margin: 0px;
+  line-height: 1.3em;
+}
+
+h2 {
+  font-family: Author-Regular;
+  font-size: 36px;
+  line-height: 44px;
 }
 
 h4 {
   font-family: Switzer-Regular;
   font-size: 14px;
   font-weight: 400;
+}
+
+.wpforms-submit-container button {
+  font-family: Switzer-Semibold;
+}
+
+body {
+  height: 100vh;
 }
 
 .cleanpage {
@@ -34,30 +59,51 @@ h4 {
 .theme-background {
   height: 100%;
   background:
-      linear-gradient(217deg, rgba(100,100,255,.8), rgba(0,100,255,0) 70.71%),
-      linear-gradient(127deg, rgba(100,100,155,.8), rgba(0,100,255,0) 70.71%),
-      linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,100,255,0) 70.71%);
+      linear-gradient(217deg, rgba(16,114,108,.8), rgba(217,232,230,0) 70.71%),
+      linear-gradient(127deg, rgba(217,232,230,.8), rgba(217,232,230,0) 70.71%),
+      linear-gradient(336deg, rgba(76,107,105,.8), rgba(217,232,230,0) 70.71%);
+}
+
+
+@media(max-width:1024px) {
+  .tablet-moble-display-toggle {
+      display: none !important;
+  }
 }
 
 @media(max-width:767px) {
   html {
     overflow: visible;
   }
-  .theme-background {
-    height: 100%;
-  }
   .cleanpage > div > .gb-grid-column:first-child {
     height: auto !important;
   }
+  .theme-background {
+    height: 100%;
+  }
 }
 
-body {
-  height: 100vh;
-}
 
 .owl-carousel {
   width: 200px;
-  height: 200px;
+}
+
+#owl-carousel-01 {
+  left: 40px;
+  top: 80px;
+}
+
+#owl-carousel-02 {
+  top: -60px;
+}
+
+#owl-carousel-03 {
+  top: 40px;
+}
+
+#owl-carousel-04 {
+  left: -60px;
+  top: -80px;
 }
 
 .item img {
@@ -70,8 +116,13 @@ body {
   padding-left: 20px;
 }
 
-.owl-carousel p {
 
+.owl-carousel p {
+  color:#fff;
+}
+
+.owl-carousel h4 {
+  color:#fff;
 }
 
 .owl-carousel p:before {
