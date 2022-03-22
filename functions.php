@@ -50,7 +50,7 @@ add_action('wp_enqueue_scripts', 'owlcarousel_enqueue_scripts');
 /**
  * Create Custom Post Type for Slideres
  */
-function create_slider_post_type() {
+/*function create_slider_post_type() {
 
 	$labels = array(
 		'name' => __( 'Sliders' ),
@@ -84,15 +84,16 @@ function create_slider_post_type() {
 	register_post_type( 'slider', $args);
 
 }
-add_action( 'init', 'create_slider_post_type' );
+add_action( 'init', 'create_slider_post_type' );*/
 
 /**
  * Remove Slug support from custom post type
- */
+ *//*
 add_action( 'init', function() {
     remove_post_type_support( 'slider', 'editor' );
     remove_post_type_support( 'slider', 'slug' );
-} );
+} );*/
+
 
 /**
  * Add featured Image Support
@@ -208,7 +209,7 @@ if( ! function_exists('hakuna_matata_shortcode_callback_01') ){
 
     global $post;
 
-    $qoutesQuery = new WP_Query( array( 'post_type' => 'slider' ) );
+    $qoutesQuery = new WP_Query( array( 'post_type' => 'qoutes' ) );
     $qoutesPosts = $qoutesQuery->posts;
 
     $splittedArray = splitMyArray($qoutesPosts, 4);
@@ -250,7 +251,7 @@ if( ! function_exists('hakuna_matata_shortcode_callback_02') ){
 
     global $post;
 
-    $qoutesQuery = new WP_Query( array( 'post_type' => 'slider' ) );
+    $qoutesQuery = new WP_Query( array( 'post_type' => 'qoutes' ) );
     $qoutesPosts = $qoutesQuery->posts;
 
     $splittedArray = splitMyArray($qoutesPosts, 4);
@@ -291,7 +292,7 @@ if( ! function_exists('hakuna_matata_shortcode_callback_03') ){
 
     global $post;
 
-    $qoutesQuery = new WP_Query( array( 'post_type' => 'slider' ) );
+    $qoutesQuery = new WP_Query( array( 'post_type' => 'qoutes' ) );
     $qoutesPosts = $qoutesQuery->posts;
 
     $splittedArray = splitMyArray($qoutesPosts, 4);
@@ -331,7 +332,7 @@ if( ! function_exists('hakuna_matata_shortcode_callback_04') ){
 
     global $post;
 
-    $qoutesQuery = new WP_Query( array( 'post_type' => 'slider' ) );
+    $qoutesQuery = new WP_Query( array( 'post_type' => 'qoutes' ) );
     $qoutesPosts = $qoutesQuery->posts;
 
     $splittedArray = splitMyArray($qoutesPosts, 4);
