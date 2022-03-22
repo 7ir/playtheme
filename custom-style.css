@@ -56,6 +56,7 @@ body {
   height: 100vh;
 }
 
+
 .theme-background {
   height: 100%;
   background:
@@ -65,13 +66,13 @@ body {
 }
 
 
-@media(max-width:1024px) {
+@media (max-width:1024px) {
   .tablet-moble-display-toggle {
       display: none !important;
   }
 }
 
-@media(max-width:767px) {
+@media (max-width:767px) {
   html {
     overflow: visible;
   }
@@ -82,7 +83,6 @@ body {
     height: 100%;
   }
 }
-
 
 .owl-carousel {
   width: 200px;

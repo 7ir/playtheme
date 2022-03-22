@@ -5,9 +5,10 @@
    <!--script src="http://playcustomtheme.local/wp-content/themes/playtheme/owlcarousel/owl.carousel.min.js"></script-->
     <script>
 
-
-    jQuery('.wpforms-field-container').click(function(){
-      jQuery('.wpforms-field-container').addClass('init-nlform-toggle');
+    /* WPForms toggle form fields */
+    $wpf_f_c = jQuery('.wpforms-field-container');
+    $wpf_f_c.click(function(){
+      $wpf_f_c.addClass('init-nlform-toggle');
     });
 
     var owl01 = jQuery('#owl-carousel-01');
