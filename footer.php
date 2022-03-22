@@ -5,8 +5,9 @@
    <!--script src="http://playcustomtheme.local/wp-content/themes/playtheme/owlcarousel/owl.carousel.min.js"></script-->
     <script>
 
+    var owl01 = jQuery('#owl-carousel-01');
     jQuery('#owl-carousel-01').owlCarousel({
-        autoplay:true,
+        autoplay:false,
         autoplayTimeout: 5000,
         smartSpeed: 500,
         loop:true,
@@ -20,6 +21,12 @@
           },
         },
     })
+    setTimeout(function(){
+      var intervalID = window.setInterval(myCallback, 2000);
+      function myCallback() {
+          owl01.trigger( 'next.owl.carousel');
+      }
+    },1000);
 
 
     var owl02 = jQuery('#owl-carousel-02');
@@ -42,7 +49,7 @@
       function myCallback() {
           owl02.trigger( 'next.owl.carousel');
       }
-    },1000);
+    },2000);
 
 
     var owl03 = jQuery('#owl-carousel-03');
@@ -65,7 +72,7 @@
       function myCallback() {
           owl03.trigger( 'next.owl.carousel');
       }
-    },2000);
+    },3000);
 
 
     var owl04 = jQuery('#owl-carousel-04');
@@ -88,7 +95,7 @@
       function myCallback() {
           owl04.trigger( 'next.owl.carousel');
       }
-    },3000);
+    },4000);
 
     </script>
 
