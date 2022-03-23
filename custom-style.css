@@ -77,20 +77,20 @@ body {
 
 #owl-carousel-01 {
   left: 40px;
-  top: 80px;
+  top: 11vh;
 }
 
 #owl-carousel-02 {
-  top: -60px;
+  top: -6vh;
 }
 
 #owl-carousel-03 {
-  top: 40px;
+  top: 6vh;
 }
 
 #owl-carousel-04 {
   left: -60px;
-  top: -80px;
+  top: -11vh;
 }
 
 @media (max-width:1024px) {
@@ -161,9 +161,13 @@ body {
 }
 
 @media (max-height:767px) {
-  .wnls-col2 > div > div {
+  /*.wnls-col2 > div > div {
     height: 225px;
-  }
+  }*/
+}
+
+.wnls-col2 .gb-grid-wrapper {
+  height: 33vh;
 }
 
 .wpforms-field-container {
@@ -171,6 +175,7 @@ body {
   z-index: 10 !important;
   opacity: 0;
   transition:opacity 0.5s;
+  width: 300px !important;
 }
 
 .wpforms-field .wpforms-field-label {
@@ -189,12 +194,15 @@ body {
   color: #231B33 !important;
 }
 
-
 .wpforms-container .wnl-button {
     border-radius:104px !important;
     border:0px !important;
     padding:12px 32px !important;
+    background: #ddd !important;
 }
+
+
+
 
 .init-nlform-toggle {
   position: relative !important;

@@ -6,9 +6,9 @@
     <script>
 
     /* WPForms toggle form fields */
-    $wpf_f_c = jQuery('.wpforms-field-container');
-    $wpf_f_c.click(function(){
-      $wpf_f_c.addClass('init-nlform-toggle');
+    var wpf_f_c = jQuery('.wpforms-field-container');
+    wpf_f_c.click(function(){
+      wpf_f_c.addClass('init-nlform-toggle');
     });
 
     var owl01 = jQuery('#owl-carousel-01');
