@@ -34,7 +34,6 @@ h2 {
 
 h4 {
   font-family: Switzer-Regular;
-  font-size: 14px;
   font-weight: 400;
 }
 
@@ -141,6 +140,8 @@ body {
 
 .owl-carousel h4 {
   color:#fff;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 .owl-carousel p:before {
