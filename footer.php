@@ -1,8 +1,4 @@
 <?php wp_footer(); ?>
-    <!-- jQuery library -->
-   <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
-   <!-- Owl Carousel -->
-   <!--script src="http://playcustomtheme.local/wp-content/themes/playtheme/owlcarousel/owl.carousel.min.js"></script-->
     <script>
 
     /* WPForms toggle form fields */
@@ -11,11 +7,11 @@
       wpf_f_c.addClass('init-nlform-toggle');
     });
 
+    /* Owl Carousels */
     var owl01 = jQuery('#owl-carousel-01');
     jQuery('#owl-carousel-01').owlCarousel({
         autoplay:false,
-        autoplayTimeout: 5000,
-        smartSpeed: 500,
+        smartSpeed:500,
         loop:true,
         margin:10,
         animateIn: 'fadeIn',
@@ -32,7 +28,7 @@
         },
     })
     setTimeout(function(){
-      var intervalID = window.setInterval(myCallback, 2000);
+      var intervalID = window.setInterval(myCallback, 5000);
       function myCallback() {
           owl01.trigger( 'next.owl.carousel');
       }
@@ -42,7 +38,7 @@
     var owl02 = jQuery('#owl-carousel-02');
     jQuery('#owl-carousel-02').owlCarousel({
         callbacks: true,
-        smartSpeed: 500,
+        smartSpeed:500,
         loop:true,
         margin:10,
         animateIn: 'fadeIn',
@@ -59,7 +55,7 @@
         },
     })
     setTimeout(function(){
-      var intervalID = window.setInterval(myCallback, 2000);
+      var intervalID = window.setInterval(myCallback, 5000);
       function myCallback() {
           owl02.trigger( 'next.owl.carousel');
       }
@@ -69,7 +65,7 @@
     var owl03 = jQuery('#owl-carousel-03');
     jQuery('#owl-carousel-03').owlCarousel({
         callbacks: true,
-        smartSpeed: 500,
+        smartSpeed:500,
         loop:true,
         margin:10,
         animateIn: 'fadeIn',
@@ -86,7 +82,7 @@
         },
     })
     setTimeout(function(){
-      var intervalID = window.setInterval(myCallback, 2000);
+      var intervalID = window.setInterval(myCallback, 5000);
       function myCallback() {
           owl03.trigger( 'next.owl.carousel');
       }
@@ -96,7 +92,7 @@
     var owl04 = jQuery('#owl-carousel-04');
     jQuery('#owl-carousel-04').owlCarousel({
         callbacks: true,
-        smartSpeed: 500,
+        smartSpeed:500,
         loop:true,
         margin:10,
         animateIn: 'fadeIn',
@@ -113,7 +109,7 @@
         },
     })
     setTimeout(function(){
-      var intervalID = window.setInterval(myCallback, 2000);
+      var intervalID = window.setInterval(myCallback, 5000);
       function myCallback() {
           owl04.trigger( 'next.owl.carousel');
       }
