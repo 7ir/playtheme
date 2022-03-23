@@ -71,7 +71,7 @@ body {
   background-size: cover;
 }
 
-
+/* Owl Carousel */
 .owl-carousel {
   width: 175px;
 }
@@ -94,37 +94,6 @@ body {
   top: -10vh;
 }
 
-@media (max-width:1024px) {
-  .tablet-moble-display-toggle {
-      display: none !important;
-  }
-}
-
-@media (max-width:767px) {
-  html {
-    overflow: visible;
-  }
-  .cleanpage > div > .gb-grid-column:first-child {
-    height: auto !important;
-  }
-
-  .cleanpage > div {
-    align-items: center !important;
-  }
-
-  .theme-background {
-    height: 100%;
-  }
-
-  #owl-carousel-01 {
-    left: 33vw;
-    top: 60px;
-  }
-
-  #owl-carousel-02 {
-    top: 0px;
-  }
-}
 
 .item img {
   border-radius:50%;
@@ -154,6 +123,40 @@ body {
   width: 1.3em;
   left: 0px;
 }
+
+@media (max-width:1024px) {
+  .tablet-moble-display-toggle {
+      display: none !important;
+  }
+}
+
+@media (max-width:767px) {
+  html {
+    overflow: visible;
+  }
+
+  .cleanpage > div > .gb-grid-column:first-child {
+    height: auto !important;
+  }
+
+  .cleanpage > div {
+    align-items: center !important;
+  }
+
+  .theme-background {
+    height: 100%;
+  }
+
+  #owl-carousel-01 {
+    left: 33vw;
+    top: 60px;
+  }
+
+  #owl-carousel-02 {
+    top: 0px;
+  }
+}
+
 
 /* WPForms */
 .wnls-col1 h2 {
