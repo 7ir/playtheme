@@ -1,5 +1,5 @@
 Kokkuvõtvalt:
-Kasutasin Gutenbergi editori, panin sinna GenerateBlocks-i. Selle gridi plokkidega oli hea layout teha. Vormi tegin WPForms pluginaga. Lihtsa JS-i ja CSS-iga avan vormi väljad. Sliderid tegin OwlCarousel-iga. 4tk, adminis on kõik sliderid ühes kohas. Slideri postituse tegin CPT UI ja CF-ga. Slaideri kood asub funkstioonifailis ning lisasin need gutenbergi shortcodedega. Kõik disaini detaile ei jõudnud valmis. Functions.php-s on loogika, mis võiks ideaalis jaotada qoute-d slideritesse ühtlaselt ära. Aga see pole perfektne.
+Kasutasin Gutenbergi editori, panin sinna GenerateBlocks-i. Selle gridi plokkidega oli hea layout teha. Vormi tegin WPForms pluginaga. Lihtsa JS-i ja CSS-iga avan vormi väljad. Sliderid tegin OwlCarousel-iga. 4tk, adminis on kõik sliderid ühes kohas. Slideri postituse tegin CPT UI ja CF-ga. Slaideri kood asub funkstioonifailis ning lisasin need gutenbergi shortcodedega. Kõiki disaini detaile ei jõudnud valmis. Functions.php-s on loogika, mis võiks ideaalis jaotada qoute-d slideritesse ühtlaselt ära. Aga see pole perfektne.
 
 
 
