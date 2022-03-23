@@ -1,5 +1,4 @@
 Kokkuvõtvalt:
-
 Kasutasin Gutenbergi editori, panin sinna GenerateBlocks-i. Sliderid tegin OwlCarousel-iga. Slaideri kood asub funkstioonifailis ning lisasin need gutenbergi shortcodedega. Kõik disaini detaile ei jõudnud valmis. Functions.php-s on loogika, mis võiks ideaalis jaotada qoute-d slideritesse ühtlaselt ära. Aga see pole perfektne.
 
 
