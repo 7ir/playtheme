@@ -1,5 +1,8 @@
 <?php wp_footer(); ?>
-    <script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/wp-content/themes/playtheme/owlcarousel/owl.carousel.min.js"></script>
+<script>
+jQuery(document).ready(function() { // this waits until the document is fully loaded
 
     /* WPForms toggle form fields */
     var wpf_f_c = jQuery('.wpforms-field-container');
@@ -11,6 +14,7 @@
     /* Owl Carousels */
     var owl01 = jQuery('#owl-carousel-01');
     jQuery('#owl-carousel-01').owlCarousel({
+        navigation : true,
         autoplay:false,
         smartSpeed:500,
         loop:true,
@@ -116,6 +120,8 @@
       }
     },4000);
 
+
+});
     </script>
 
   </body>

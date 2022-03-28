@@ -28,12 +28,14 @@ add_theme_support( 'title-tag' );
  * Include Owl Carouse CSS and JS
  */
 function owlcarousel_enqueue_scripts() {
+
   wp_enqueue_style( 'my-style-owl-carousel-min-css', get_template_directory_uri() . '/owlcarousel/owl.carousel.min.css');
   wp_enqueue_style( 'my-style-owl-theme-default-min-css', get_template_directory_uri() . '/owlcarousel/owl.theme.default.min.css');
   wp_enqueue_style( 'my-custom-style-css', get_template_directory_uri() . '/custom-style.css');
 
-  wp_enqueue_script('my-script-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js' );
-  wp_enqueue_script('my-script-owl-carousel-min-js', get_template_directory_uri() . '/owlcarousel/owl.carousel.min.js' );
+  //wp_enqueue_script('my-script-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js' );
+  //wp_enqueue_script('my-script-owl-carousel-min-js', get_template_directory_uri() . '/owlcarousel/owl.carousel.min.js' );
+
 }
 add_action('wp_enqueue_scripts', 'owlcarousel_enqueue_scripts');
 
