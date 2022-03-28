@@ -33,6 +33,7 @@ function owlcarousel_enqueue_scripts() {
   wp_enqueue_style( 'my-style-owl-theme-default-min-css', get_template_directory_uri() . '/owlcarousel/owl.theme.default.min.css');
   wp_enqueue_style( 'my-custom-style-css', get_template_directory_uri() . '/custom-style.css');
 
+  // Did not load on frontend when loading these files from here.
   //wp_enqueue_script('my-script-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js' );
   //wp_enqueue_script('my-script-owl-carousel-min-js', get_template_directory_uri() . '/owlcarousel/owl.carousel.min.js' );
 
