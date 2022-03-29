@@ -71,9 +71,14 @@ add_action('after_setup_theme','cih_theme_support');
 }*/
 
 
+/*
+  Kuidas lahendada: Kui on nt 8 siis nr on 2 kui on alla 8 siis dubleeri .. ??
+*/
 function splitMyArray(array $input_array, int $size, $preserve_keys = null): array
 {
   $nr = (int)ceil(count($input_array) / $size);
+  //$nr = (int)floor(count($input_array) / $size);
+  do_action('qm/info', $nr );
 
   if ($nr > 0) {
      return array_chunk($input_array, $nr, $preserve_keys);
@@ -92,12 +97,15 @@ if( ! function_exists('sldr_shrtcde_shortcode_callback_01') ){
     $qoutesQuery = new WP_Query( array( 'post_type' => 'qoutes' ) );
     $qoutesPosts = $qoutesQuery->posts;
     $total = count($qoutesPosts);
+    do_action('qm/info', $total );
 
     if($total > 0) {
       if( ! wp_is_mobile()) {
 
         $splittedArray = splitMyArray($qoutesPosts, 4);
+        do_action('qm/info', $splittedArray );
         $splittedArray0 = $splittedArray[0];
+        do_action('qm/info', $splittedArray0 );
 
         $s1 = '';
         $s1 = '<div id="owl-carousel-01" class="owl-carousel owl-theme">';
