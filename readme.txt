@@ -48,3 +48,5 @@ GIT commit, päeviku kommentaarid ning ajad kokkupanduna:
 - () Ma leidsin ning lahendasin oma saadetud töös ühe vea - arvustuste slaider laadis vaid sisselogituna. Pidin selle lahendamiseks jQuery ja OwlSlideri JS-id footeri failis laadima (enne oli enquetud).
 - () Minu veel mittelahendatud eesmärk on tsitaadid paremini ning unikaalselt jaotada. Hetkel on nii, et kui viimane slaider jääb jaotamisel tühjaks(ja see võib juhtuda ka siis kui justkui peaks olema piisavalt tsitaate) siis laetakse sinna esimese jaotuse/slaideri tsitaatid. See pole unikaalne ning kolmanda ning teise slaideri puhul peaks siis sama loogikat kasutama.
 Mul on lahendus tekkimas aga selleks võib minna mõni päev veel.
+-- 2022-04-03 (2h)
+- [ ] Sain selle loogika korda, et qoute-d jaotuksid korralikult.
